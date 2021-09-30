@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">TubesCapstone</string>
+    <string name="app_name">HOTEL PURWAKARTA</string>
+    <string name="nama_hotel">Nama Hotel</string>
+    <string name="id_hotel">ID Hotel</string>
+    <string name="hotel_text">Temukan Hotel Impianmu!</string>
+    <string name="alamat_hotel">Berikut adalah informasi lengkap</string>
+    <string name="koordinat">Berikut adalah informasi lengkap</string>
+    <string name="no_telp">Berikut adalah informasi lengkap</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+
+    <string name="title_activity_detail">ScrollingActivity</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="alamat">Alamat hotel</string>
+    <string name="kor">Kordinat</string>
+    <string name="kord">No Telepon</string>
+
+    <string name="action_info">Info</string>
+
+
+
 </resources>
