@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:andoid="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FBF0F5">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_klik"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/sportsImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"/>
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/TextAppearance.AppCompat.Headline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_alignBottom="@id/sportsImage"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                android:text="@string/nama_hotel"/>
+
+
+            <TextView
+                android:id="@+id/id_hotel"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sportsImage"
+                android:textColor="?android:textColorSecondary"
+                android:padding="8dp"
+                android:text="@string/id_hotel"/>
+
+<!--            <TextView-->
+<!--                android:id="@+id/alamat_hotel"-->
+<!--                style="@style/TextAppearance.AppCompat.Subhead"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/id_hotel"-->
+<!--                android:padding="8dp"-->
+<!--                android:text="@string/alamat_hotel"/>-->
+<!--            <TextView-->
+<!--                android:id="@+id/koordinat"-->
+<!--                style="@style/TextAppearance.AppCompat.Subhead"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/alamat_hotel"-->
+<!--                android:padding="8dp"-->
+<!--                android:text="@string/koordinat"/>-->
+<!--            <TextView-->
+<!--                android:id="@+id/no_telp"-->
+<!--                style="@style/TextAppearance.AppCompat.Subhead"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/koordinat"-->
+<!--                android:padding="8dp"-->
+<!--                android:text="@string/no_telp" />-->
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

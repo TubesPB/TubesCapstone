@@ -77,6 +77,6 @@ dependencies {
     //noinspection LifecycleAnnotationProcessorWithJava8
     annotationProcessor "android.arch.lifecycle:compiler:2.2.0"
     implementation 'androidx.core:core:1.6.0'
-  
+    implementation 'com.github.AppIntro:6.0.0'
 
 }
