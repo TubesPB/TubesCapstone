@@ -2,6 +2,7 @@ package com.capstone.tubescapstone.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.ViewTarget;
 import com.capstone.tubescapstone.DetailActivity;
 import com.capstone.tubescapstone.R;
 import com.capstone.tubescapstone.Model.HotelItem;
@@ -21,7 +23,7 @@ import java.util.ArrayList;
 
 public class HotelAdapter extends RecyclerView.Adapter<com.capstone.tubescapstone.Adapter.HotelAdapter.ViewHolder> {
     private ArrayList<HotelItem> hotelItems;
-    private Context context;
+    private final Context context;
 
 
     public HotelAdapter(ArrayList<HotelItem> hotelItems, Context context) {
@@ -43,12 +45,12 @@ public class HotelAdapter extends RecyclerView.Adapter<com.capstone.tubescapston
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Glide.with(context).load(hotelItems.get(position).getGambarUrl()).error(R.drawable.ic_launcher_background)
-                .override(512,512)
+        final ViewTarget<ImageView, Drawable> into = Glide.with(context).load(hotelItems.get(position).getGambarUrl()).error(R.drawable.ic_launcher_background)
+                .override(512, 512)
                 .into(holder.sportsImage);//menampilkan gambar
 
 
-          holder.title.setText(hotelItems.get(position).getNama());
+        holder.title.setText(hotelItems.get(position).getNama());
 
         holder.cvKlik.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,9 +76,9 @@ public class HotelAdapter extends RecyclerView.Adapter<com.capstone.tubescapston
 
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView sportsImage;
+        private final ImageView sportsImage;
         private TextView title;
         private TextView idHotel;
         private TextView alamatHotel;

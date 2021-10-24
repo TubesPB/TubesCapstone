@@ -20,6 +20,8 @@ import com.capstone.tubescapstone.rest.ApiConfig;
 import com.capstone.tubescapstone.rest.ApiService;
 import com.capstone.tubescapstone.Room.HotelViewModel;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,10 +31,10 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView hotel;
-    private ArrayList<HotelItem> hotelItems;
-    private HotelAdapter hotelAdapter;
-    private HotelViewModel mHotelViewModel;
+    private RecyclerView hotel = null;
+    private ArrayList<HotelItem> hotelItems = null;
+    private HotelAdapter hotelAdapter = null;
+    private HotelViewModel mHotelViewModel = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +83,8 @@ public class MainActivity extends AppCompatActivity {
             if (info.getTypeName().equalsIgnoreCase("MOBILE"))
                 if (info.isConnected()) have_MobileData = true;
         }
-        return have_WIFI || have_MobileData;
+        final boolean b = have_WIFI || have_MobileData;
+        return b;
     }
 
     private void initView() {
@@ -95,8 +98,9 @@ public class MainActivity extends AppCompatActivity {
         apiService.getData()
                 .enqueue(new Callback<RootHotelModel>() {
                     @Override
-                    public void onResponse(Call<RootHotelModel> call, Response<RootHotelModel> response) {
+                    public void onResponse(@NotNull Call<RootHotelModel> call, @NotNull Response<RootHotelModel> response) {
                         if (response.isSuccessful()) {
+                            assert response.body() != null;
                             hotelItems = response.body().getHotel(); //ini untuk mengambil data dari JSON lalu ditampung ke model
 
 
@@ -113,19 +117,19 @@ public class MainActivity extends AppCompatActivity {
                                 String gambar_url = hotelItems.get(i).getGambarUrl();
 
 
-                                HotelItem nginepyuk = new HotelItem();
-                                nginepyuk.setId(id);
-                                nginepyuk.setKode_hotel(kode_hotel);
-                                nginepyuk.setNama(nama);
-                                nginepyuk.setAlamat(alamat);
-                                nginepyuk.setKordinat(kordinat);
-                                nginepyuk.setNomorTelp(no_telp);
-                                nginepyuk.setGambarUrl(gambar_url);
-                                mHotelViewModel.insert(nginepyuk);
+                                HotelItem Hotels = new HotelItem();
+                                Hotels.setId(id);
+                                Hotels.setKode_hotel(kode_hotel);
+                                Hotels.setNama(nama);
+                                Hotels.setAlamat(alamat);
+                                Hotels.setKordinat(kordinat);
+                                Hotels.setNomorTelp(no_telp);
+                                Hotels.setGambarUrl(gambar_url);
+                                mHotelViewModel.insert(Hotels);
                             }
 
                             hotelAdapter = new HotelAdapter(hotelItems, getApplicationContext()); // model memasukkan ke adapter untuk ditampilkan di Recycle vIEW
-                            hotelAdapter.notifyDataSetChanged(); //adapter akan mengetahui apabila ada data baru
+                            hotelAdapter.notifyDataSetChanged(); //adapter akan mengetahui apabila ada data yang baru
                             hotel.setAdapter(hotelAdapter); //recycler view menghubungkan ke adapter dengan "SET ADAPTER"
                             hotel.setLayoutManager(new LinearLayoutManager(getApplicationContext())); //recycler view dapat berubah layoutnya bisa berubah grid maupun stargredd
                         }

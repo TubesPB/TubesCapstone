@@ -11,12 +11,11 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 public class DetailActivity extends AppCompatActivity {
-
-    private ImageView hotelDetail;
-    private TextView title;
-    private TextView alamatHotel;
-    private TextView koordinat;
-    private TextView noTelp;
+    private ImageView hotelDetail = null;
+    private TextView title = null;
+    private TextView alamatHotel = null;
+    private TextView koordinat = null;
+    private TextView noTelp = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

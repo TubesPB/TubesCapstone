@@ -26,7 +26,7 @@ public class HotelItem{
     @ColumnInfo(name = "nama")
     private String nama;
 
-    @SerializedName("gambat_url")
+    @SerializedName("gambar_url")
     @ColumnInfo(name = "gambar_url")
     private String gambarUrl;
 
