@@ -1,5 +1,6 @@
 package com.capstone.tubescapstone;
 
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initView();
 
+        Intent intentIntro = new Intent(this, IntroActivity.class);
+        startActivity(intentIntro);
 
         hotelItems = new ArrayList<>();
         if (haveNetwork()) {
